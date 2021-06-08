@@ -5,11 +5,12 @@
     <title>Picxel Info Tech - Photo Editing Company</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Picxel is the best service provider of highest quality Photo Editing Services, Manipulation Services. Be it sky replacement, Vintage Film, HRD Blending or any of your convenience, Pixcel infotech has got you covered.  Having worked for more than thousands projects our editing experts ensure the best quality results. "
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="description"
+        content="Picxel is the best service provider of highest quality Photo Editing Services, Manipulation Services. Be it sky replacement, Vintage Film, HRD Blending or any of your convenience, Pixcel infotech has got you covered.  Having worked for more than thousands projects our editing experts ensure the best quality results. "
+        <link rel="preconnect" href="https://fonts.gstatic.com">
     <!--link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
@@ -21,103 +22,133 @@
 </head>
 
 <style>
-    
-    body{
+    body {
         font-family: 'Montserrat', sans-serif;
     }
-  
 </style>
-
-
-
-
+<script>
+    window.addEventListener('load',function(){
+  initSlider(
+    'slider1', //id
+    ['flawless editing.'], 
+    100, //duration
+    1000 //delay
     
-<!-- Preloader Start -->
-<!--div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-img pere-text">
-                <img src="temp/picxellogo.png" alt="">
-            </div>
-        </div>
-    </div>
-</div>
+  );
+  initSlider(
+    'slider2', //id
+    ['life with our editing. '], 
+    100, //duration
+    1000 //delay
+    
+  );
+  initSlider(
+    'slider3', //id
+    ['colours shine though! '], 
+    100, //duration
+    1000 //delay
+    
+  );
+  initSlider(
+    'slider4', //id
+    ['Memories. Captured. Edited. '], 
+    100, //duration
+    1000 //delay
+    
+  );
+});
+
+//just copy and paste below
+var createText = function(text,id,duration){
+  document.getElementById(id).innerHTML = '';
+  for(let i = 0; i < text.length; i++){
+    setTimeout(()=>{
+      let newText = text.substr(0,(i+1));
+      document.getElementById(id).innerHTML = newText;
+    },duration*i);
+  }
+}
+var clearText = function(id,duration){
+  let text = document.getElementById(id).innerHTML;
+  for(let i = text.length; i > 0; i--){
+    setTimeout(()=>{
+      let newText = text.substr(0,text.length-i);
+      document.getElementById(id).innerHTML = newText;
+    },duration*i);
+  }
+}
+var initSlider = function(id,texts,duration,delay){
+  let durs = [];
+  for(let i = 0; i < texts.length-1; i++){
+    let beforeDur;
+    if(i==0){
+      beforeDur = 0;
+    }
+    else{
+      beforeDur=durs[i-1];
+    }
+    durs.push((texts[i].length*duration*2) + (2*delay) + beforeDur);
+  }
+  
+  let allTime = 0;
+  for (let i = 0; i < texts.length; i++){
+    allTime += (texts[i].length*duration*2) + (2*delay);
+  }
+  let mainSlider = function(){
+    for(let i = 0; i < texts.length; i++){
+      setTimeout(()=>{
+        createText(texts[i],id,duration);
+        setTimeout(()=>{
+          clearText(id,duration);
+        },texts[i].length*duration + delay);
+      },i === 0 ? 0 : durs[i-1]);
+    }
+  }
+  mainSlider();
+  setInterval(()=>{
+    mainSlider();
+  },allTime);  
+}
+
+</script>
 <style>
-    <style>
-    .preloader {
-  background-color: #f7f7f7;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999999;
-  -webkit-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s;
-  margin: 0 auto;
+   .center{
+  height:20vh;
+  display:flex;
+  justify-content:left;
+  text-align:left;
+  align-items:flex-start;
+  font-family:fangsong;
+  font-size:75px;
+  color:white;
 }
-.preloader .preloader-circle {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  border-style: solid;
-  border-width: 3px;
-  border-top-color: #8f1bdc;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  z-index: 10;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 1px 5px 0 rgba(35, 181, 185, 0.15);
-  box-shadow: 0 1px 5px 0 rgba(35, 181, 185, 0.15);
-  background-color: #ffffff;
-  -webkit-animation: zoom 2000ms infinite ease;
-  animation: zoom 2000ms infinite ease;
-  -webkit-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s;
+@media screen and (max-width: 450px) {
+    .center{
+  height:40vh;
+  display:flex;
+  justify-content:left;
+  text-align:left;
+  align-items:flex-start;
+  font-family:fangsong;
+  font-size:45px;
+  color:white;
+    }
 }
-.preloader .preloader-circle2 {
-  border-top-color: #0078ff;
-}
-.preloader .preloader-img {
-  position: absolute;
-  top: 50%;
-  z-index: 200;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  text-align: center;
-  display: inline-block;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  padding-top: 6px;
-  -webkit-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s;
-}
-.preloader .preloader-img img {
-  max-width: 55px;
-}
-.preloader .pere-text strong {
-  font-weight: 800;
-  color: #dca73a;
-  text-transform: uppercase;
 </style>
-</style-->
+
+
+
+
+
 <body class="transition-none">
     <div class="container page">
         <div class="container-wrap">
             <div class="mobile-panel">
                 <div class="wrap">
                     <div class="wrap_float ">
-                       
-                        
-                       
+
+
+
                         <div class="mode-check mobile-disable">
                             <input type="checkbox" id="mode-checkbox" class="mode-checkbox-input">
                             <label for="mode-checkbox" class="mode-checkbox-label" data-dark-title="Dark Mode"
@@ -136,23 +167,23 @@
             </div>
             <div class="top-panel top-panel-wide d-center-col fixed" id="js-panel">
                 <div class="wrap wrap-wide">
-                    
+
                     <div class="wrap_float overlay-top d-center-col">
-                       
+
                         <div class="wrap-center d-center-col">
                             <a class="logo" href="index.html">
                                 Picxel Infotech
                             </a>
-                             
-                        <div class="mode-check ">
-                            <input type="checkbox" id="mode-checkbox" class="mode-checkbox-input">
-                            <label for="mode-checkbox" class="mode-checkbox-label" data-dark-title="Dark Mode"
-                                data-light-title="Light Mode"></label>
-                        </div><br><br><br>
+
+                            <div class="mode-check ">
+                                <input type="checkbox" id="mode-checkbox" class="mode-checkbox-input">
+                                <label for="mode-checkbox" class="mode-checkbox-label" data-dark-title="Dark Mode"
+                                    data-light-title="Light Mode"></label>
+                            </div><br><br><br>
                             <div class="menu d-center-col" id="js-menu" style="text-align: center; padding: 50px;">
                                 <ul>
                                     <li>
-                                        <a href="index.html" >Home</a><br>
+                                        <a href="index.html">Home</a><br>
                                         <a href="about.html">About</a><br>
                                         <a href="service.html">Service</a><br>
                                         <a href="portfolio.html">Portfolio</a><br>
@@ -177,35 +208,29 @@
                     <div class="menu-close" id="js-menu-close"></div>
                 </div>
             </div>
+
+
+
             <section class="slider-section js-fix-height" id="js-slider-section">
                 <div class="slide">
                     <div class="slide__wrap">
                         <div class="slide__img">
-                            <img src="temp/DSC02808 (1).jpg"
-                                alt="">
+                            <img src="temp/DSC02808 (1).jpg" alt="">
                         </div>
                         <div class="wrap">
                             <div class="wrap_float js-fix-height">
                                 <div class="slide-content ">
-                                  
-           <div class="container py-5">
-              <div class="output" id="output">
-                <h1 class="cursor"></h1>
-                <p></p>
-              </div>
-            </div>
 
-              
 
-                                    
-                                    
-                                    <p class="slide-description">
-                                        We edit any range of photo with our editing skills, for vintage to sky
-                                        replacement with expert’s guidance for outstanding results.
+                                    <div class="center">
+                                       <h1>Timeless look,  
+                                        <div id='slider1'>flawless editing.</div></h1>
+                                      </div><br><br>
+                                      <p class="slide-description">
+                                            We help you get back to your past, present or even space with our editing
+                                            experts. </p> 
 
-                                    </p>
 
-                                    
                                 </div>
                             </div>
                         </div>
@@ -214,19 +239,19 @@
                 <div class="slide">
                     <div class="slide__wrap">
                         <div class="slide__img">
-                            <img src="temp/DSC03418 (1).jpg"
-                                alt="">
+                            <img src="temp/DSC03418 (1).jpg" alt="">
                         </div>
                         <div class="wrap">
                             <div class="wrap_float js-fix-height">
                                 <div class="slide-content">
 
-                                    <h2 class="slide-title">Photo memories for life with our editing!
-                                    </h2>
+                                    <div class="center">
+                                        <h1>Photo memories for   
+                                         <div id='slider2'>flawless editing.</div></h1>
+                                       </div><br><br>
                                     <p class="slide-description">
-                                        We help you get back to your past, present or even space with our editing
-                                        experts. </p>
-                                    
+                                        Your ideas can come true with our editing experts, where in we thrive to give the best results. </p>
+
                                 </div>
                             </div>
                         </div>
@@ -235,16 +260,19 @@
                 <div class="slide">
                     <div class="slide__wrap">
                         <div class="slide__img">
-                            <img src="temp/DSC01742 (1).jpg"
-                                alt="">
+                            <img src="temp/DSC01742 (1).jpg" alt="">
                         </div>
                         <div class="wrap">
                             <div class="wrap_float js-fix-height">
                                 <div class="slide-content">
-                                    <h2 class="slide-title">Let your true colours shine though! </h2>
+                                    <div class="center">
+                                        <h1>Let your true  
+                                         <div id='slider3'>flawless editing.</div></h1>
+                                       </div><br><br>
                                     <p class="slide-description ">
-                                        We play with colour to bring out your life’s colourfulness. We ensure quick turnaround of projects. </p>
-                                    
+                                        We play with colour to bring out your life’s colourfulness. We ensure quick
+                                        turnaround of projects. </p>
+
                                 </div>
                             </div>
                         </div>
@@ -253,17 +281,18 @@
                 <div class="slide">
                     <div class="slide__wrap">
                         <div class="slide__img">
-                            <img
-                                src="temp/DSC09645 (1).jpg">
+                            <img src="temp/DSC09645 (1).jpg">
                         </div>
                         <div class="wrap">
                             <div class="wrap_float js-fix-height">
                                 <div class="slide-content">
-                                    <h2 class="slide-title">Timeless look, flawless editing.
-                                    </h2>
+                                    <div class="center">
+                                        <h1>Real life.   
+                                         <div id='slider4'>flawless editing.</div></h1>
+                                       </div><br><br>
                                     <p class="slide-description">
                                         We create a wow- worthy photo with our flawless editing skills. </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -297,19 +326,20 @@
 
             <a href="tel:+919788006248" class="float1" target="_blank">
                 <i class="fa fa-phone my-float1"></i>
-                </a>
-          
-            <a href="https://api.whatsapp.com/send?phone=+919788006248&text=Hello picxel Info Tech" class="float" target="_blank">
-            <i class="fa fa-whatsapp my-float"></i>
             </a>
-            
+
+            <a href="https://api.whatsapp.com/send?phone=+919788006248&text=Hello picxel Info Tech" class="float"
+                target="_blank">
+                <i class="fa fa-whatsapp my-float"></i>
+            </a>
+
             <div class="single-content wp-content">
                 <div class="wrap ">
 
                     <h2 class="title center-title-section">Our fairy-tale</h2>
 
-                    <img src="temp/02.jpg" alt=""
-                        class="alignright bg-img img-hover" style="border-radius: 10px; height: 300px; width: 500px;"> <br>
+                    <img src="temp/02.jpg" alt="" class="alignright bg-img img-hover"
+                        style="border-radius: 10px; height: 300px; width: 500px;"> <br>
                     <p>
                         Picxel is widely known amongst the recognized service provider of highest quality Photo Editing
                         Services,
@@ -325,18 +355,17 @@
             <section class="packages-section section center-title-section js-slider-block">
                 <div class="wrap">
                     <div class="wrap_float">
-                       
+
                         <h2 class="title">Giving wings to your fairy-tale</h2>
                         <div class="subtitle">Be it sky replacement, Vintage Film, HRD Blending or any of your
                             convenience, Pixcel infotech has got you covered. ​</div>
-                            
+
                         <div class="section-content">
-                           
+
                             <div class="packages-slider">
                                 <a href="service.html" class="packages-item">
                                     <div class="shadow js-shadow"></div>
-                                    <div class="bg-img "
-                                        style="background-image: url(temp/ddafter.jpg)"></div>                                    
+                                    <div class="bg-img " style="background-image: url(temp/ddafter.jpg)"></div>
                                     <div class="packages-item-head">
 
                                     </div>
@@ -347,8 +376,7 @@
                                 </a>
                                 <a href="service.html" class="packages-item">
                                     <div class="shadow js-shadow"></div>
-                                    <div class="bg-img "
-                                        style="background-image: url(temp/hdrafter.jpg)">
+                                    <div class="bg-img " style="background-image: url(temp/hdrafter.jpg)">
                                     </div>
                                     <div class="packages-item-head">
 
@@ -360,8 +388,7 @@
                                 </a>
                                 <a href="service.html" class="packages-item">
                                     <div class="shadow js-shadow"></div>
-                                    <div class="bg-img "
-                                        style="background-image: url(temp/srafter.jpg)">
+                                    <div class="bg-img " style="background-image: url(temp/srafter.jpg)">
                                     </div>
                                     <div class="packages-item-head">
 
@@ -373,8 +400,7 @@
                                 </a>
                                 <a href="service.html" class="packages-item">
                                     <div class="shadow js-shadow"></div>
-                                    <div class="bg-img "
-                                        style="background-image: url(temp/reafter.jpg)">
+                                    <div class="bg-img " style="background-image: url(temp/reafter.jpg)">
                                     </div>
                                     <div class="packages-item-head">
 
@@ -384,9 +410,9 @@
                                         <div class="location">View more</div>
                                     </div>
                                 </a>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -433,7 +459,8 @@
                                     Quality
                                 </div>
                                 <p style="text-align:center; font-size: 15px; padding: 5px;">
-                                    We have a dedicated quality control team to ensure editing is performed to the highest of standards. </p>
+                                    We have a dedicated quality control team to ensure editing is performed to the
+                                    highest of standards. </p>
                             </div>
                             <div class="features-item">
                                 <div class="features-item-icon">
@@ -463,8 +490,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p1.jpg"
-                                                    alt="">
+                                                <img src="temp/p1.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -472,8 +498,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p4.jpg"
-                                                    alt="">
+                                                <img src="temp/p4.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -481,8 +506,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p5.jpg"
-                                                    alt="">
+                                                <img src="temp/p5.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -490,8 +514,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p7.jpg"
-                                                    alt="">
+                                                <img src="temp/p7.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -499,8 +522,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p11.jpg"
-                                                    alt="">
+                                                <img src="temp/p11.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -508,8 +530,7 @@
                                         <figure class="block-caption img-caption">
                                             <button class="zoom-btn"></button>
                                             <div class="img-wrap">
-                                                <img src="temp/p12.jpg"
-                                                    alt="">
+                                                <img src="temp/p12.jpg" alt="">
                                             </div>
                                         </figure>
                                     </div>
@@ -587,7 +608,8 @@
                         <div class="footer-top">
                             <div class="footer-column first-column">
                                 <div class="logo">Picxel Infotech</div>
-                                <div class="text">Photos are return ticket to a moment, to understand what our lives meant to us. Picxel infotech is
+                                <div class="text">Photos are return ticket to a moment, to understand what our lives
+                                    meant to us. Picxel infotech is
                                     everything you need to make alluring images. </div>
                             </div>
                             <div class="footer-column">
@@ -898,7 +920,6 @@
     <script src="js/jquery.placeholder.label.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/scripts.js"></script>
-    	<script src="type.js"></script>
 </body>
 
 </html>

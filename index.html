@@ -924,7 +924,10 @@ var initSlider = function(id,texts,duration,delay){
         </span>
     </div>
     <script>
-   
+    window.onload = function(){
+        //hide the preloader
+        document.querySelector(".preloader-jackhammer").style.display = "none";
+    }
    
     </script>
     <script src="js/jquery.min.js"></script>

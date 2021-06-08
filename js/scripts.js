@@ -975,8 +975,8 @@ jQuery(document).ready(function(){
             autoplay: true,
             variableWidth: true,
             centerMode: false,
-            speed: 1000,
-            autoplaySpeed: 3000
+            speed: 1500,
+            autoplaySpeed: 4500
         });
         
         jQuery('#js-slider-section').on('beforeChange', function(event, 

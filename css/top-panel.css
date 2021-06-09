@@ -1079,3 +1079,6 @@ https://hellodigi.ru/
     display: none;
   }
 }
+.top-h{
+  z-index: 99999;
+}
